@@ -20,9 +20,11 @@ AirCarePlus/
 │
 ├── data
 ├── docs
+├── firmware
 ├── mqtt
 ├── simulator
 ├── dashboard
+├── hardware_list.md
 └── README.md
 
 ## Author
