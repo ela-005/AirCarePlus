@@ -2,7 +2,6 @@
 const int LED_PIN = 2;
 void setup() {
   // put your setup code here, to run once:
-  pinMode(LED_PIN,OUTPUT);
   Serial.begin(115200);
   Serial.println("ESP32 Hello World started");
 }
