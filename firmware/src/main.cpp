@@ -1,17 +1,34 @@
 #include <Arduino.h>
-const int LED_PIN = 2;
+#include <DHT.h>
+
+#define DHTPIN 15
+#define DHTTYPE DHT22
+
+DHT dht(DHTPIN, DHTTYPE);
+
 void setup() {
-  // put your setup code here, to run once:
   Serial.begin(115200);
-  Serial.println("ESP32 Hello World started");
+  Serial.println("ESP32 Started!");
+  Serial.println("Initialisation du capteur DHT22...");
+  dht.begin();
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-  digitalWrite(LED_PIN, HIGH);
-  Serial.println("LED ON");
-  delay(1000);
-  digitalWrite(LED_PIN,LOW);
-  Serial.println("LED OFF");
-  delay(1000);
+  delay(5000); // Espace de 5 secondes entre chaque mesure
+  
+  float hum = dht.readHumidity();
+  float temp = dht.readTemperature();
+  
+  if (isnan(hum) || isnan(temp)){
+    Serial.println("ERROR!");
+    return; // On évite d'envoyer des données fausses si le capteur bugge
+  }
+
+  // Code corrigé avec les doubles espaces ("  |  ") pour ton script Python
+  // Format strict pour ton script Python d'origine
+  Serial.print("Humidite: ");
+  Serial.print(hum);
+  Serial.print("%  |  Temperature: ");
+  Serial.print(temp);
+  Serial.println("°C");
 }
