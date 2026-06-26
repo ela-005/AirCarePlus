@@ -40,7 +40,7 @@ MQTT propose trois niveaux de compromis entre la fiabilité de livraison et la c
 
 ## 4. Diagramme de Connexion et Flux de Données
 L'architecture logique du pipeline de données AirCare+ est structurée en trois couches : **Collecte matérielle**, **Routage intermédiaire**, et **Restitution applicative**.
-![Architecture Réseau et Pipeline MQTT](../docs/mqtt_architecture.png)
+![Architecture Réseau et Pipeline MQTT](../docs/mqtt_architecture_Diag.png)
 
 ### Description cinématique du flux d'information :
 1. **Échantillonnage :** L'ESP32 interroge le composant DHT22 via une liaison numérique série toutes les 5 secondes (selon les spécifications du firmware).
