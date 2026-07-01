@@ -21,7 +21,7 @@ def initialiser_environnement():
         with open(CSV_FILE_PATH, mode='w', newline='', encoding='utf-8') as file:
             writer = csv.writer(file)
             writer.writerow(["Timestamp", "Temperature_C", "Humidity_Percent"])
-        print(f"📁 Fichier CSV créé : {CSV_FILE_PATH}")
+        print(f"Fichier CSV créé : {CSV_FILE_PATH}")
 
 def parser_et_enregistrer(ligne_brute):
     """Découpe proprement la chaîne reçue et l'ajoute au CSV."""
@@ -46,21 +46,21 @@ def parser_et_enregistrer(ligne_brute):
                 writer = csv.writer(file)
                 writer.writerow([current_time, temperature, humidity])
                 
-            print(f"📥 [Enregistré] {current_time} -> Temp: {temperature}°C | Hum: {humidity}%")
+            print(f"[Enregistré] {current_time} -> Temp: {temperature}°C | Hum: {humidity}%")
             
         except ValueError:
-            print(f"⚠️ Données corrompues ignorées : {ligne_brute}")
+            print(f"Données corrompues ignorées : {ligne_brute}")
         except Exception as e:
-            print(f"⚠️ Erreur lors du traitement : {e}")
+            print(f"Erreur lors du traitement : {e}")
 
 def ecouter_liaison_serie():
     """Gère la connexion et la lecture du port série de manière robuste."""
-    print(f"🔌 Tentative d'ouverture du port {SERIAL_PORT}...")
+    print(f"Tentative d'ouverture du port {SERIAL_PORT}...")
     
     try:
         ser = serial.Serial(SERIAL_PORT, BAUD_RATE, timeout=1)
         time.sleep(2)  # Temps de stabilisation de la liaison
-        print(f"✅ Connecté à {SERIAL_PORT}. Écoute active du flux ESP32...")
+        print(f"Connecté à {SERIAL_PORT}. Écoute active du flux ESP32...")
         
         while True:
             if ser.in_waiting > 0:
@@ -72,14 +72,14 @@ def ecouter_liaison_serie():
             time.sleep(0.05)  # Pause légère pour ne pas surcharger le processeur
             
     except serial.SerialException:
-        print(f"\n❌ Impossible d'accéder au port {SERIAL_PORT}.")
-        print("💡 Vérifie que ton logiciel de port virtuel est activé (ON) et que Wokwi utilise l'autre port.")
+        print(f"\n Impossible d'accéder au port {SERIAL_PORT}.")
+        print("Vérifie que ton logiciel de port virtuel est activé (ON) et que Wokwi utilise l'autre port.")
         ports_dispos = [p.device for p in serial.tools.list_ports.comports()]
-        print(f"🔍 Ports COM actuellement détectés sur ton PC : {ports_dispos}")
+        print(f"Ports COM actuellement détectés sur ton PC : {ports_dispos}")
 
 if __name__ == "__main__":
     try:
         initialiser_environnement()
         ecouter_liaison_serie()
     except KeyboardInterrupt:
-        print("\n🛑 Script arrêté par l'utilisateur. Sortie propre.")
+        print("\n Script arrêté par l'utilisateur. Sortie propre.")
