@@ -1,4 +1,4 @@
-# Rapport d'Analyse : Méthodes de Provisionnement Wi-Fi (Tâche W3-04)
+# Méthodes de Provisionnement Wi-Fi
 
 ## 1. Introduction
 Dans le cadre du développement de notre système IoT **AirCarePlus**, la connectivité réseau est un élément critique. L'ESP32 doit pouvoir s'associer de manière fiable à un point d'accès Wi-Fi local pour publier ses messages MQTT. Nous étudions ici deux méthodes distinctes pour configurer ces identifiants réseau (SSID et mot de passe).
