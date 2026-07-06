@@ -11,22 +11,23 @@ The project simulates environmental sensors, sends measurements through MQTT, st
 - Python
 - MQTT
 - Git/GitHub
-- Streamlit
 - CSV Data Logging
 
 ## Project Structure
 
+```text
 AirCarePlus/
-│
-├── data
-├── docs
-├── firmware
-├── mqtt
-├── simulator
-├── dashboard
-├── hardware_list.md
-└── README.md
-
+├── data/            # Stockage des données
+├── demos/           # Preuves de concept et liens vers les vidéos
+├── docs/            # Documentation du projet et suivi des jalons
+├── firmware/        # Code source C/C++ pour l'ESP32
+├── simulator/       # Scripts Python
+├── diagram.json     # Configuration du circuit pour Wokwi
+├── platformio.ini   # Configuration de l'environnement PlatformIO
+├── README.md        # Présentation principale du projet
+└── wokwi.toml       # Paramètres du simulateur Wokwi
+```
+---
 ## Author
 
 Ela Aloui
