@@ -28,9 +28,9 @@ Ce document recense les axes d'amélioration techniques et les innovations strat
 * **REQ-03 (MQTT Hardening) :** Sécurisation de la couche transport réseau en forçant l'authentification par couple `Username/Password` et en préparant le chiffrement TLS sur le Broker Mosquitto.
 * **REQ-04 (Mode Boîte Noire) :** Programmation de la mémoire flash interne de l'ESP32 (`LittleFS`) pour sauvegarder localement les mesures si le Wi-Fi est coupé, avec renvoi automatique des données dès le retour de la connexion.
 * **REQ-05 (Contrôle par Relais) :** Connexion de modules relais physiques aux pins de l'ESP32 pour piloter des équipements industriels de régulation d'ambiance selon des seuils stricts :
-  * *Température élevée ($> 26^\circ\text{C}$)* $\rightarrow$ Activation d'un Ventilateur.
-  * *Température basse ($< 19^\circ\text{C}$)* $\rightarrow$ Activation d'un Chauffage.
-  * *Humidité critique ($< 35\%$ ou $> 65\%$)* $\rightarrow$ Activation d'un Humidificateur ou extracteur d'air.
+* **Température élevée (> 26°C) :** Activation d'un Ventilateur.
+* **Température basse (< 19°C) :** Activation d'un Chauffage.
+* **Humidité critique (< 35% ou > 65%) :** Activation d'un Humidificateur ou d'un extracteur d'air.
 
 ### 2.2. Objectifs de Priorité Moyenne (Autonomie & Déploiement Terrain)
 * **REQ-06 (Configuration Bluetooth BLE) :** Utilisation du module Bluetooth de l’ESP32 au premier démarrage pour configurer les accès réseaux de manière sécurisée sans flasher le code.
